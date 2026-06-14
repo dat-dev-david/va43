@@ -1,2 +1,2 @@
 # va43
-the 43 OS
+the 43rd OS
