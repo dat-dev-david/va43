@@ -1,12 +1,10 @@
-bits 64
+bits 16
 default abs
 org 0x7c00
 
-%define endl 0xd, 0xa, 0x0
-
-hello_system: db "starting seq.1 [boot]", endl
-second_stage: db "jumping to seq.2 [boot]", endl
-jump: dw 0x00007c00
+hello_system: db "starting seq.1 [boot]", 0xd, 0xa, 0x0
+second_stage: db "jumping to seq.2 [boot]", 0xd, 0xa, 0x0
+jump: dw 0x00007e00
 
 init:
     cli 
@@ -16,9 +14,7 @@ init:
     mov ds, ax
     mov cs, ax
     mov ss, ax
-    mov es, ax 
-    mov fs, ax
-    mov gs, ax
+    mov es, ax
 
     ;move sp to 0000:7c00 %ss:[sp]%
     mov sp, 0x7c00
